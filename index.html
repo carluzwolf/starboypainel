@@ -184,7 +184,7 @@ function guess(){ // qual rosto a placa esta usando (pela cor do olho esquerdo)
  let b=C.face,bd=1e9;F.forEach((f,i)=>{const d=(f[0]-T.r)**2+(f[1]-T.g)**2+(f[2]-T.b)**2;if(d<bd-1||(d<bd+1&&i==C.face)){bd=d;b=i}});if(b!=C.face){C.face=b;mark()}}
 function draw(now){
  const a=P.act,f=F[C.face],ang=ANG.includes(a),sur=a==7||a==32||a==60;
- const cut=ang?.46:sur?0:.06,lid=ang?-24:sur?0:9,sx=ang?1.09:sur?1.12:1,sy0=ang?.77:sur?1.12:1,ps=sur?.6:1;
+ const cut=ang?.46:0,lid=ang?-24:0,sx=ang?1.09:sur?1.12:1,sy0=ang?.77:sur?1.12:1,ps=sur?.6:1;
  const sq=ea(P.arc/.55),aB=1-ea((P.arc-.56)/.22),aA=ea((P.arc-.5)/.05),aP=ea((P.arc-.5)/.5);
  const L=[P.r,P.g,P.b],R=C.hold?L:[0,1,2].map(i=>cl(f[6+i]+L[i]-f[i],0,255));
  x.setTransform(S,0,0,S,0,0);x.globalAlpha=1;x.fillStyle='#000';x.fillRect(0,0,240,240);
